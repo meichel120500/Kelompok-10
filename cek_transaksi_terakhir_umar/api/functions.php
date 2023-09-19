@@ -4,7 +4,7 @@ function getRequestData()
 {
     if($_SERVER['REQUEST_METHOD'] === "POST"){
         return $_POST;
-    }else if($_SERVER['REQUEST_METHOD'] === "POST"){
+    }else if($_SERVER['REQUEST_METHOD'] === "GET"){
         return $_GET;
     }
 
