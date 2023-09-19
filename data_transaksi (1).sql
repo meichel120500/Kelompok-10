@@ -41,9 +41,9 @@ CREATE TABLE `data_transaksi` (
 INSERT INTO `data_transaksi` (`id`, `name`, `saldo`, `tgl_tf`) VALUES
 (1, 'Yohanes Meichel', 4500000, '2023-09-19'),
 (2, 'Abimanyu', 5000000, '2023-09-19'),
-(3, 'suryadi', 4000000, '2023-09-19'),
-(4, 'Jason fikri', 3000000, '2023-09-19'),
-(5, 'hana', 2000000, '2023-09-19');
+(3, 'suryadi', 4000000, '2023-09-21'),
+(4, 'Jason fikri', 3000000, '2023-09-24'),
+(5, 'hana', 2000000, '2023-09-30');
 
 --
 -- Indexes for dumped tables
