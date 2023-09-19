@@ -1,6 +1,6 @@
 <?php
 
-function getRequestData()
+function get_request_data()
 {
     if($_SERVER['REQUEST_METHOD'] === "POST"){
         return $_POST;

@@ -3,7 +3,7 @@
 include('functions.php');
 
 // $requestUrl = isset($_GET['url']) ? $_GET['url'] : '/';
-$requestUrl = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$request_url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $routes = [
     '/api/transactions' => [
@@ -13,13 +13,13 @@ $routes = [
     ],  
 ];
 
-if (array_key_exists($requestUrl, $routes)) {
-    $controller = $routes[$requestUrl];
+if (array_key_exists($request_url, $routes)) {
+    $controller = $routes[$request_url];
     if($_SERVER['REQUEST_METHOD'] !== strtoupper($controller['method'])){
         make_response(['error' => "Method Not Allowed"], 405);
     }
     
-    $request = getRequestData();
+    $request = get_request_data();
     if($request === null){
         make_response(['error' => "Method Not Allowed"], 405);
     }
