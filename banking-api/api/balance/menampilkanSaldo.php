@@ -16,7 +16,8 @@
     if(mysqli_num_rows($query) > 0) {
         $row = mysqli_fetch_assoc($query);
         $saldo = $row['saldo'];
-        echo json_encode(array("saldo" => $saldo));
+        $nama = $row['name'];
+        echo json_encode(array("nama" => $nama,"saldo" => $saldo));
     } else {
         echo json_encode(array("message" => "Nasabah tidak ditemukan."));
     }
