@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2023 at 06:28 PM
+-- Generation Time: Oct 03, 2023 at 05:28 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -29,7 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data_transaksi_bank` (
   `id` int(11) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
+  `kota` text NOT NULL,
+  `alamat` text NOT NULL,
   `nilai_saldo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,12 +41,12 @@ CREATE TABLE `data_transaksi_bank` (
 -- Dumping data for table `data_transaksi_bank`
 --
 
-INSERT INTO `data_transaksi_bank` (`id`, `nama`, `nilai_saldo`) VALUES
-(1, 'Felix', 2500000),
-(2, 'Muhammad Daffa Aditya', 5000000),
-(3, 'Ridwan', 4000000),
-(4, 'Afrizal', 5500000),
-(5, 'Umar', 7000000);
+INSERT INTO `data_transaksi_bank` (`id`, `user_id`, `nama`, `no_hp`, `kota`, `alamat`, `nilai_saldo`) VALUES
+(1, 0, 'Felix', '', '', '', 2500000),
+(2, 0, 'Muhammad Daffa Aditya', '', '', '', 5000000),
+(3, 0, 'Ridwan', '', '', '', 4000000),
+(4, 0, 'Afrizal', '', '', '', 5500000),
+(5, 0, 'Umar', '', '', '', 7000000);
 
 -- --------------------------------------------------------
 
@@ -52,7 +56,7 @@ INSERT INTO `data_transaksi_bank` (`id`, `nama`, `nilai_saldo`) VALUES
 
 CREATE TABLE `histori_transaksi` (
   `id` int(11) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
+  `bank_id` bigint(20) NOT NULL,
   `tanggal_transaksi` datetime DEFAULT NULL,
   `jenis_transaksi` varchar(255) DEFAULT NULL,
   `jumlah_transaksi` decimal(10,2) DEFAULT NULL
@@ -62,10 +66,23 @@ CREATE TABLE `histori_transaksi` (
 -- Dumping data for table `histori_transaksi`
 --
 
-INSERT INTO `histori_transaksi` (`id`, `nama`, `tanggal_transaksi`, `jenis_transaksi`, `jumlah_transaksi`) VALUES
-(1, 'Umar', '2023-09-19 17:35:05', 'Pembelian', '300000.00'),
-(2, 'Felix', '2023-09-19 17:35:05', 'Pemasukan', '2000000.00'),
-(3, 'Umar', '2023-09-19 17:37:58', 'Gaji', '2500000.00');
+INSERT INTO `histori_transaksi` (`id`, `bank_id`, `tanggal_transaksi`, `jenis_transaksi`, `jumlah_transaksi`) VALUES
+(1, 0, '2023-09-19 17:35:05', 'Pembelian', '300000.00'),
+(2, 0, '2023-09-19 17:35:05', 'Pemasukan', '2000000.00'),
+(3, 0, '2023-09-19 17:37:58', 'Gaji', '2500000.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `hash_password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -84,6 +101,13 @@ ALTER TABLE `histori_transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -92,6 +116,12 @@ ALTER TABLE `histori_transaksi`
 --
 ALTER TABLE `histori_transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -22,4 +22,15 @@ function make_response($data, $code)
     exit;
 }
 
+function check_all_params_exist($request, $params)
+{
+    foreach($params as $param){
+        if(!isset($request[$param])){
+            return false;
+        }
+    }
+
+    return true;
+}
+
 ?>

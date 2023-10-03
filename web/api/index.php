@@ -6,9 +6,37 @@ include('functions.php');
 $request_url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $routes = [
-    '/api/transactions' => [
+    // AUTH
+    '/api/login' => [
         "method" => "POST",
-        "file" => "CekTransaksiTerakhir.php",
+        "file" => "UserAuth.php",
+        "function" => "login"
+    ],
+    '/api/check_email_exists' => [
+        "method" => "POST",
+        "file" => "UserAuth.php",
+        "function" => "check_email_exists"
+    ],
+    '/api/reset_password' => [
+        "method" => "POST",
+        "file" => "UserAuth.php",
+        "function" => "reset_password"
+    ],
+    '/api/change_password' => [
+        "method" => "POST",
+        "file" => "UserAuth.php",
+        "function" => "change_password"
+    ],
+
+    // PERBANKAN
+    '/api/perbankan/user_bank_data' => [
+        "method" => "POST",
+        "file" => "PerBankan.php",
+        "function" => "get_data_bank"
+    ],  
+    '/api/perbankan/user_transactions' => [
+        "method" => "POST",
+        "file" => "PerBankan.php",
         "function" => "cek_transaksi"
     ],  
 ];
@@ -28,7 +56,7 @@ if (array_key_exists($request_url, $routes)) {
 
     call_user_func_array($controller['function'], [$request]);
 } else {
-    make_response(['error' => "Not Found"], 404);
+    make_response(['error' => "API route not Found"], 404);
 }
 
 ?>
