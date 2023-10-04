@@ -26,7 +26,8 @@ class SaldoController extends Controller
         $data_transaksi = DB::table('histori_transaksi')
             ->select('id as id_transaksi', 'tanggal_transaksi', 'jenis_transaksi', 'jumlah_transaksi')
             ->where('bank_id', $bank_id)
-            ->orderBy('tanggal_transaksi', 'desc');
+            ->orderBy('tanggal_transaksi', 'desc')
+            ->get();
 
         
         $total_transfer = 0;

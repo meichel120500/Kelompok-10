@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SaldoController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,10 @@ Route::get('logout', [LogoutController::class, 'index'])->name('logout');
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('saldo', [SaldoController::class, 'index'])->name('saldo');
+
+Route::get('profil', [AccountController::class, 'index'])->name('profil');
+Route::post('simpan-profil', [AccountController::class, 'save_profile'])->name('simpan_profil');
+Route::get('security-account', [AccountController::class, 'security_account'])->name('security_account');
+Route::post('ganti-password', [AccountController::class, 'ganti_password'])->name('ganti_password');
 
 

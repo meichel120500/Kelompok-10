@@ -13,7 +13,7 @@ class LoginController extends Controller
     public function index()
     {
         if(session()->has('id')){
-            return redirect("/");
+            return redirect()->route('dashboard');
         }
         return view('login');
     }
@@ -66,8 +66,7 @@ class LoginController extends Controller
     {
         // Validate the incoming request
         $request->validate([
-            'first-name' => 'required|string',
-            'last-name' => 'required|string',
+            'fullname' => 'required|string',
             'username' => 'required|string',
             'email' => [
                 'required',
@@ -79,9 +78,7 @@ class LoginController extends Controller
             'email.unique' => 'Email yang diinput sudah ada.',
         ]);
 
-        $first_name = $request->input('first-name');
-        $last_name = $request->input('last-name');
-        $name = trim($first_name . " " . $last_name);
+        $nama = $request->input('fullname');
 
         $username = $request->input('username');
         $email = $request->input('email');

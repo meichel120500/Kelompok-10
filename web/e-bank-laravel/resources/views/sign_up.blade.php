@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- link css -->
-    <link rel="stylesheet" href="{{ asset('CSS/style.css')}} " />
+    <link rel="stylesheet" href="{{ asset('CSS/style.css') }}" />
     <!-- link fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,50 +28,50 @@
   <body>
     <div class="form-login">
       <div class="login-card">
-
-        <form action="{{ route('submit_login') }}" method="post">
+        <form action="{{route('submit_sign_up')}}" method="post">
             @csrf
             <!-- konten 1 -->
             <div class="content-1">
                 <h1>We<span>bankmin</span></h1>
-                <h1>Log In</h1>
+                <h1>Sign Up</h1>
             </div>
+    
             @include('includes/flash_messages')
             <!-- konten 2 -->
             <div class="content-2">
+                <!-- input password -->
+                <div>
+                <h2>Full Name</h2>
+                <input name="fullname" type="text" placeholder="RakaminAcademy" />
+                </div>
+                <!-- input password -->
+                <div>
+                <h2>Username</h2>
+                <input name="username" type="text" placeholder="Rakamin" />
+                </div>
                 <!-- input email -->
                 <div>
                 <h2>Email Address</h2>
-                <input name="email" type="email" name="email" placeholder="rakamin@gmail.com" />
+                <input name="email" type="email" placeholder="rakamin@gmail.com" />
                 </div>
                 <!-- input password -->
                 <div>
                 <h2>Password</h2>
-                <input name="password" type="password" name="password" />
+                <input name="password" type="password" />
                 </div>
             </div>
     
-            <!-- konten 3 -->
-            {{-- <div class="content-3">
-                <div class="box">
-                <input type="checkbox" />
-                <h3>Remind Me</h3>
-                </div>
-                <a href="/HTML/Login/forgotPassword.html">Forget Password?</a>
-            </div> --}}
-
-             <!-- konten 4 -->
+            <!-- konten 4 -->
             <div class="content-4">
-                <button type="submit" class="Login">Login</button>
+                <button type="submit">Create</button>
             </div>
         </form>
         
 
-       
         <!-- konten 5 -->
         <div class="content-5">
-          <h3>Don't Have an Account?</h3>
-          <a href="{{ route('sign_up') }}">Sign Up</a>
+          <h3>Already Have an Account?</h3>
+          <a href="{{ route('login') }}">Sign In</a>
         </div>
       </div>
     </div>
