@@ -31,18 +31,18 @@
     <div class="main">
       <!-- sidebar -->
       <div class="sidebar">
-        <h1>We<span>bankmin</span></h1>
+        <h1>10<span>Exchange</span></h1>
         <div class="items">
           <div class="dashboard">
             <a href="{{ url('/') }}"
               ><img src="{{ asset('assets/dashboard.png') }}" alt="" />
-              <span class="sidebar-text"><h2>dashboard</h2></span>
+              <span class="sidebar-text"><h2>Dashboard</h2></span>
             </a>
           </div>
           <div class="saldo">
             <a href="{{ route('saldo') }}"
               ><img src="{{ asset('assets/saldo.png') }}" alt="" />
-              <span class="sidebar-text"><h2>Saldo</h2></span>
+              <span class="sidebar-text"><h2>Balance</h2></span>
             </a>
           </div>
           <div class="akun">
@@ -82,7 +82,7 @@
           </div>
         </div>
 
-        
+
         <!-- menu -->
         <div class="menu-dashboard">
           <h2>Profile Details</h2>
@@ -136,7 +136,7 @@
               </div>
             </div>
           </form>
-          
+
         </div>
       </div>
     </div>

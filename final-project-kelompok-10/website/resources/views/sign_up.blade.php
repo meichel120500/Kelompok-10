@@ -32,10 +32,10 @@
             @csrf
             <!-- konten 1 -->
             <div class="content-1">
-                <h1>We<span>bankmin</span></h1>
+                <h1>10<span>Exchange</span></h1>
                 <h1>Sign Up</h1>
             </div>
-    
+
             @include('includes/flash_messages')
             <!-- konten 2 -->
             <div class="content-2">
@@ -60,13 +60,13 @@
                 <input name="password" type="password" />
                 </div>
             </div>
-    
+
             <!-- konten 4 -->
             <div class="content-4">
                 <button type="submit">Create</button>
             </div>
         </form>
-        
+
 
         <!-- konten 5 -->
         <div class="content-5">

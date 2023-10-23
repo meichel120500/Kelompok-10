@@ -33,7 +33,7 @@
             @csrf
             <!-- konten 1 -->
             <div class="content-1">
-                <h1>We<span>bankmin</span></h1>
+                <h1>10<span>Exchange</span></h1>
                 <h1>Log In</h1>
             </div>
             @include('includes/flash_messages')
@@ -50,7 +50,7 @@
                 <input name="password" type="password" name="password" />
                 </div>
             </div>
-    
+
             <!-- konten 3 -->
             {{-- <div class="content-3">
                 <div class="box">
@@ -65,9 +65,9 @@
                 <button type="submit" class="Login">Login</button>
             </div>
         </form>
-        
 
-       
+
+
         <!-- konten 5 -->
         <div class="content-5">
           <h3>Don't Have an Account?</h3>

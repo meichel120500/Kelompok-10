@@ -31,18 +31,18 @@
     <div class="main">
       <!-- sidebar -->
       <div class="sidebar">
-        <h1>We<span>bankmin</span></h1>
+        <h1>10<span>Exchange</span></h1>
         <div class="items">
           <div class="dashboard">
             <a href="{{ url('/') }}"
               ><img src="{{ asset('assets/dashboard.png') }}" alt="" />
-              <span class="sidebar-text"><h2>dashboard</h2></span>
+              <span class="sidebar-text"><h2>Dashboard</h2></span>
             </a>
           </div>
           <div class="saldo">
             <a href="{{ route('saldo') }}"
               ><img src="{{ asset('assets/saldo.png') }}" alt="" />
-              <span class="sidebar-text"><h2>Saldo</h2></span>
+              <span class="sidebar-text"><h2>Balance</h2></span>
             </a>
           </div>
           <div class="akun">
@@ -83,16 +83,16 @@
         </div>
 
         <div class="menu-dashboard">
-          <h2>Dashboard</h2>
+          <h2>Balance</h2>
           <div class="saldo-user">
-            <h2>Saldo Terakhir Anda<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
+            <h2>Your Last Balance<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
           </div>
           <div class="dashboard-items">
             <div class="transfer-uang">
-              <h2>Total Transfer Uang<br /><span>Rp. {{$total_transfer}}</span></h2>
+              <h2>Total Money Income<br /><span>Rp. {{$total_transfer}}</span></h2>
             </div>
             <div class="total-pendapatan">
-              <h2>Total Pendapatan Uang<br /><span>Rp. {{$total_pendapatan}}</span></h2>
+              <h2>Your Currency After Exchange<br /><span>Rp. {{$total_pendapatan}}</span></h2>
             </div>
           </div>
         </div>

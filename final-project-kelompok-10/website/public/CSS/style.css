@@ -7,6 +7,10 @@
   --warna6: #08bdbd;
   --warna7: #f21b3f;
   --warna8: #ff9914;
+  --warna9: #ffbe0b;
+  --warna10: #8338EC;
+  --warna11: #3A86FF;
+  --warna12: #FB5607;
 }
 
 * {
@@ -48,10 +52,11 @@ body {
   margin-bottom: 26px;
 }
 .content-1 h1:first-child span {
-  color: var(--warna4);
+  color: var(--warna9);
+  font-weight: bold;
 }
 .content-1 h1:last-child {
-  color: var(--warna7);
+  color: var(--warna10);
 }
 
 /* konten 2 */
@@ -63,7 +68,7 @@ body {
   font-size: 32px;
 }
 .content-2 input[type="text"] {
-  border: 2px solid var(--warna8);
+  border: 2px solid var(--warna11);
   font-size: 30px;
   border-radius: 25px;
   width: 458px;
@@ -71,7 +76,7 @@ body {
   padding: 20px;
 }
 .content-2 input[type="email"] {
-  border: 2px solid var(--warna8);
+  border: 2px solid var(--warna11);
   font-size: 30px;
   border-radius: 25px;
   width: 458px;
@@ -79,7 +84,7 @@ body {
   padding: 20px;
 }
 .content-2 input[type="password"] {
-  border: 2px solid var(--warna8);
+  border: 2px solid var(--warna11);
   font-size: 30px;
   border-radius: 25px;
   width: 458px;
@@ -115,7 +120,7 @@ body {
 }
 .box input[type="checkbox"] {
   appearance: none;
-  border: 2px solid var(--warna8);
+  border: 2px solid var(--warna11);
   margin-right: 5px;
   width: 30px;
   height: 30px;
@@ -138,10 +143,10 @@ body {
 .box h3 {
   font-weight: 500;
   font-size: 24px;
-  color: var(--warna8);
+  color: var(--warna11);
 }
 .content-3 a {
-  color: var(--warna8);
+  color: var(--warna11);
 }
 .content-3 a:hover {
   color: slateblue;
@@ -162,10 +167,11 @@ body {
   text-align: center;
   font-family: "MuseoModerno", cursive;
   cursor: pointer;
-  background-color: var(--warna5);
+  background-color: var(--warna12);
+  color: var(--warna1);
 }
 .content-4 button:hover {
-  background-color: #95ef34;
+  background-color: #FB5607;
 }
 
 /* konten 5 */
@@ -179,7 +185,8 @@ body {
   font-weight: 500;
 }
 .content-5 a {
-  color: var(--warna8);
+  color: var(--warna11);
+  font-weight: bold;
 }
 .content-5 a:hover {
   color: slateblue;

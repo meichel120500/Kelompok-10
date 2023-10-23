@@ -7,6 +7,11 @@
   --warna6: #08bdbd;
   --warna7: #f21b3f;
   --warna8: #ff9914;
+  --warna9: #ffbe0b;
+  --warna10: #8338EC;
+  --warna11: #3A86FF;
+  --warna12: #FF006E;
+  --warna13: #FB5607;
 }
 
 * {
@@ -18,7 +23,7 @@
 body {
   background-color: var(--warna1);
   color: var(--warna2);
-  font-family: "MuseoModerno", cursive;
+  font-family: 'Poppins',sans-serif;
 }
 
 /* main */
@@ -37,7 +42,7 @@ body {
 .topbar i {
   font-size: 25px;
   cursor: pointer;
-  color: var(--warna8);
+  color: var(--warna11);
 }
 
 /* menu */
@@ -57,7 +62,7 @@ body {
   font-size: 32px;
 }
 .menu-dashboard h2:nth-child(2) {
-  color: var(--warna7);
+  color: var(--warna12);
 }
 .dashboard-items {
   display: flex;
@@ -192,14 +197,15 @@ body {
 }
 /* welcome */
 .welcome {
-  background-color: var(--warna6);
-  width: 455px;
+  background-color: var(--warna12);
+  width: 440px;
   height: 126px;
   padding: 10px 20px;
   border-radius: 20px;
 }
 .welcome h2 {
   font-size: 32px;
+  color: var(--warna1);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -210,9 +216,30 @@ body {
   font-weight: 400;
   line-height: normal;
 }
+.Balance {
+    background-color: var(--warna12);
+    width: 470px;
+    height: 126px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 60px;
+  }
+  .Balance h2 {
+    font-size: 25px;
+    color: var(--warna1);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .Balance h2 span {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 /* saldo user */
 .saldo-user {
-  background-color: var(--warna5);
+  background-color: var(--warna10);
   width: 385px;
   height: 126px;
   padding: 10px 20px;
@@ -221,6 +248,7 @@ body {
 }
 .saldo-user h2 {
   font-size: 32px;
+  color: var(--warna1);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -231,9 +259,10 @@ body {
   font-weight: 400;
   line-height: normal;
 }
+
 /* transfe uang */
 .transfer-uang {
-  background-color: var(--warna7);
+  background-color: var(--warna12);
   width: 385px;
   height: 126px;
   padding: 10px 20px;
@@ -241,6 +270,7 @@ body {
 }
 .transfer-uang h2 {
   font-size: 32px;
+  color: var(--warna1);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -253,14 +283,15 @@ body {
 }
 /* total pendapatan */
 .total-pendapatan {
-  background-color: var(--warna6);
+  background-color: var(--warna11);
   width: 455px;
   height: 126px;
   padding: 10px 20px;
   border-radius: 20px;
 }
 .total-pendapatan h2 {
-  font-size: 32px;
+  font-size: 30px;
+  color: var(--warna1);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -274,14 +305,15 @@ body {
 
 /* sidebar */
 .sidebar {
-  background-color: var(--warna4);
+  background-color: var(--warna9);
   height: 820px;
   width: 341px;
   box-sizing: border-box;
 }
 
 .sidebar h1 {
-  color: var(--warna1);
+  color: var(--warna2);
+  font-weight: bold;
   font-size: 40px;
   font-style: normal;
   font-weight: 500;
@@ -290,7 +322,8 @@ body {
   padding: 30px;
 }
 .sidebar h1 span {
-  color: var(--warna2);
+  color: var(--warna1);
+  font-weight: bold;
 }
 
 .items {

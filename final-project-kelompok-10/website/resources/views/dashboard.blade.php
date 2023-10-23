@@ -31,18 +31,18 @@
     <div class="main">
       <!-- sidebar -->
       <div class="sidebar">
-        <h1>We<span>bankmin</span></h1>
+        <h1>10<span>Exchange</span></h1>
         <div class="items">
           <div class="dashboard">
             <a href="{{ url('/') }}"
               ><img src="{{ asset('assets/dashboard.png') }}" alt="" />
-              <span class="sidebar-text"><h2>dashboard</h2></span>
+              <span class="sidebar-text"><h2>Dashboard</h2></span>
             </a>
           </div>
           <div class="saldo">
             <a href="{{ route('saldo') }}"
               ><img src="{{ asset('assets/saldo.png') }}" alt="" />
-              <span class="sidebar-text"><h2>Saldo</h2></span>
+              <span class="sidebar-text"><h2>Balance</h2></span>
             </a>
           </div>
           <div class="akun">
@@ -86,10 +86,13 @@
           <h2>Dashboard</h2>
           <div class="dashboard-items">
             <div class="welcome">
-              <h2>Welcome to Webankmin!<br /><span>Rakamin {{session()->get('username')}}</span></h2>
+              <h2>Welcome to 10Exchange!<br /><span>Rakamin {{session()->get('username')}}</span></h2>
+            <div class="Balance">
+              <h2>Your Balance After Exchange<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
+              </div>
             </div>
             <div class="saldo-user">
-              <h2>Saldo Anda<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
+              <h2>Your Balance<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
             </div>
           </div>
         </div>
