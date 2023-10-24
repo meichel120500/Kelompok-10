@@ -63,7 +63,7 @@
             </ul>
           </div>
           <div class="logout">
-            <a href="#sdf">
+            <a href="{{ route('logout') }}">
               <img src="{{ asset('assets/logout.png') }}" alt="" />
               <span><h2>Logout</h2></span>
             </a>
