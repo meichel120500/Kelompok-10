@@ -86,10 +86,10 @@
           <h2>Dashboard</h2>
           <div class="dashboard-items">
             <div class="welcome">
-              <h2>Welcome to 10Exchange!<br /><span>Rakamin {{session()->get('username')}}</span></h2>
+                <h2>Welcome to 10Exchange!<br /><span>Rakamin {{session()->get('username')}}</span></h2>
             <div class="Balance">
-              <h2>Your Balance After Exchange<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
-              </div>
+                <h2>Your Balance After Exchange<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>
+                </div>
             </div>
             <div class="saldo-user">
               <h2>Your Balance<br /><span>Rp. {{$bank->nilai_saldo ?? "-"}}</span></h2>

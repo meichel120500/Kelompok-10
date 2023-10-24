@@ -198,8 +198,8 @@ body {
 /* welcome */
 .welcome {
   background-color: var(--warna12);
-  width: 440px;
-  height: 126px;
+  width: 420px;
+  height: 110px;
   padding: 10px 20px;
   border-radius: 20px;
 }
@@ -217,15 +217,15 @@ body {
   line-height: normal;
 }
 .Balance {
-    background-color: var(--warna12);
+    background-color: var(--warna13);
     width: 470px;
-    height: 126px;
+    height: 110px;
     padding: 10px 20px;
     border-radius: 20px;
-    margin-top: 60px;
+    margin: 50px -17px;
   }
   .Balance h2 {
-    font-size: 25px;
+    font-size: 32px;
     color: var(--warna1);
     font-style: normal;
     font-weight: 500;
@@ -241,10 +241,11 @@ body {
 .saldo-user {
   background-color: var(--warna10);
   width: 385px;
-  height: 126px;
+  height: 110px;
   padding: 10px 20px;
   border-radius: 20px;
   margin-bottom: 30px;
+  margin-right: 410px;
 }
 .saldo-user h2 {
   font-size: 32px;
