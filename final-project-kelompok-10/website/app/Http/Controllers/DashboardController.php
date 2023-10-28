@@ -11,16 +11,19 @@ class DashboardController extends Controller
     public function index()
     {
         $user_id = session()->get('id');
+        $currency_mode = session()->get('currency_mode');
 
-        $bank = DB::table('data_transaksi_bank')
-            ->where('user_id', $user_id)
+        $saldo_rupiah = DB::table('balance')
+            ->select('saldo')
+            ->where(['id_user' => $user_id, 'id_currency' => $id_rupiah])
             ->first();
 
-        if (!$bank) {
-            return redirect()->route('logout')->with("error", 'Data bank not found');
-        }
+        $saldo_exchange = DB::table('balance')
+            ->select('saldo')
+            ->where(['id_user' => $user_id, 'id_currency' => $currency_mode])
+            ->first();
 
-        return view('dashboard', compact('bank'));
+        return view('dashboard', compact('saldo_rupiah', 'saldo_exchange'));
     }
 }
 

@@ -35,8 +35,8 @@ class LoginController extends Controller
         $password = $request->input('password');
 
         // Find the user by email
-        $user = DB::table('users')
-            ->select('id', 'username', 'email', 'hash_password')
+        $user = DB::table('user')
+            ->select('id_user', 'username', 'email', 'password')
             ->where('email', $email)
             ->first();
 
@@ -45,14 +45,24 @@ class LoginController extends Controller
         }
 
         // Verify the password
-        if (!Hash::check($password, $user->hash_password)) {
+        if (!Hash::check($password, $user->password)) {
             return redirect()->back()->with("error", 'Email atau Password salah!');
         }
 
-        session()->put('id', $user->id);
+        session()->put('id', $user->id_user);
         session()->put('username', $user->username);
         session()->put('email', $user->email);
 
+        
+        $res = DB::table('balance')->select(['saldo'])->where(['id_user' => $user->id_user, 'id_currency' => 1])->first();
+
+        if(empty($res)){
+            DB::table('balance')->insert([
+                'id_user' => $user->id_user,
+                'id_currency' => 1,
+                'saldo' => 0,
+            ]);
+        }
 
         return redirect()->route('dashboard');
     }
@@ -100,7 +110,7 @@ class LoginController extends Controller
         $userId = DB::table('users')->insertGetId([
             'username' => $username,
             'email' => $email,
-            'hash_password' => $hash_password,
+            'password' => $hash_password,
         ]);
 
         if (!$userId) {

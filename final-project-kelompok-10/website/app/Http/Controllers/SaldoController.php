@@ -11,37 +11,30 @@ class SaldoController extends Controller
     public function index()
     {
         $user_id = session()->get('id');
-
+        $currency_mode = session()->get('currency_mode');
         
-        $bank = DB::table('data_transaksi_bank')
-            ->where('user_id', $user_id)
+        $saldo_rupiah = DB::table('balance')
+            ->select('saldo')
+            ->where(['id_user' => $user_id, 'id_currency' => $id_rupiah])
             ->first();
 
-        if (!$bank) {
-            return redirect()->route('dashboard')->with("error", 'Data Bank tidak ditemukan!');
-        }
+        $saldo_exchange = DB::table('balance')
+            ->select('saldo')
+            ->where(['id_user' => $user_id, 'id_currency' => $currency_mode])
+            ->first();
 
-        $bank_id = $bank->id;
-
-        $data_transaksi = DB::table('histori_transaksi')
-            ->select('id as id_transaksi', 'tanggal_transaksi', 'jenis_transaksi', 'jumlah_transaksi')
-            ->where('bank_id', $bank_id)
-            ->orderBy('tanggal_transaksi', 'desc')
-            ->get();
-
+        $money_transfer = DB::table('transaction')
+            ->select('jml_mata_uang_digital')
+            ->where(['status_transaksi' => 'success', 'id_user' => $user_id, 'metode_pembayaran' => $id_metode_payment])
+            ->first();
         
-        $total_transfer = 0;
-        $total_pendapatan = 0;
-        foreach($data_transaksi as $d){
-            if($d->jenis_transaksi == "transfer"){
-                $total_transfer += $d->jumlah_transaksi;
-            }
-            if($d->jenis_transaksi == "pendapatan"){
-                $total_pendapatan += $d->jumlah_transaksi;
-            }
-        }
 
-        return view('saldo', compact('total_transfer', 'total_pendapatan', 'bank'));
+        $money_income = DB::table('transaction')
+        ->select('jml_mata_uang_digital')
+        ->where(['status_transaksi' => 'success', 'id_user' => $user_id, 'metode_pembayaran' => $id_metode_income])
+        ->first();
+
+        return view('saldo', compact('money_income', 'money_transfer', 'saldo_exchange', 'saldo_rupiah'));
     }
 }
 
