@@ -15,7 +15,7 @@ class SaldoController extends Controller
         
         $saldo_rupiah = DB::table('balance')
             ->select('saldo')
-            ->where(['id_user' => $user_id, 'id_currency' => $id_rupiah])
+            ->where(['id_user' => $user_id, 'id_currency' => 1])
             ->first();
 
         $saldo_exchange = DB::table('balance')
@@ -23,18 +23,20 @@ class SaldoController extends Controller
             ->where(['id_user' => $user_id, 'id_currency' => $currency_mode])
             ->first();
 
-        $money_transfer = DB::table('transaction')
-            ->select('jml_mata_uang_digital')
-            ->where(['status_transaksi' => 'success', 'id_user' => $user_id, 'metode_pembayaran' => $id_metode_payment])
-            ->first();
+
+        $money_transfer = collect(DB::select("SELECT SUM(jml_mata_uang_digital) as total FROM transaction WHERE status_transaksi = 'success' AND id_user = :ID_USER AND metode_pembayaran ='payment'", ["ID_USER" => $user_id]))->first();
         
 
-        $money_income = DB::table('transaction')
-        ->select('jml_mata_uang_digital')
-        ->where(['status_transaksi' => 'success', 'id_user' => $user_id, 'metode_pembayaran' => $id_metode_income])
-        ->first();
+        $money_income = collect(DB::select("SELECT SUM(jml_mata_uang_digital) as total FROM transaction WHERE status_transaksi = 'success' AND id_user = :ID_USER AND metode_pembayaran ='top up'", ["ID_USER" => $user_id]))->first();
+        $res = DB::table('currency')->select('nama_mata_uang')->where(['id' => $currency_mode])->first();
+        $nama_mata_uang_convert = "Rp.";
 
-        return view('saldo', compact('money_income', 'money_transfer', 'saldo_exchange', 'saldo_rupiah'));
+        if($res){
+            $nama_mata_uang_convert = $res->nama_mata_uang;
+        }
+
+        
+        return view('saldo', compact('money_income', 'money_transfer', 'saldo_exchange', 'saldo_rupiah', 'nama_mata_uang_convert'));
     }
 }
 

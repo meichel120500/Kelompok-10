@@ -14,17 +14,17 @@ class AccountController extends Controller
     {
         $user_id = session()->get('id');
 
-        $bank = DB::table('data_transaksi_bank')
-            ->where('user_id', $user_id)
+        $account_user = DB::table('account')
+            ->where('id_user', $user_id)
             ->first();
 
-        if (!$bank) {
-            return redirect()->route('dashboard')->with("error", 'Data bank not found');
+        if(empty($account_user)){
+            return redirect()->back()->with("error", "Maaf tidak bisa menemukan data akun!");
         }
 
-        $nama = $bank->nama;
-        list($firstName, $lastName) = explode(' ', $nama, 2);
-        return view('profil', compact('bank', 'firstName', 'lastName'));
+        $fullname = $account_user->fullname;
+        list($firstName, $lastName) = explode(' ', $fullname, 2);
+        return view('profil', compact('account_user', 'firstName', 'lastName'));
     }
 
     public function save_profile(Request $request)
@@ -36,7 +36,7 @@ class AccountController extends Controller
             'email' => [
                 'required',
                 'email',
-                Rule::unique('users', 'email')->ignore(session()->get('id'), 'id'),
+                Rule::unique('user', 'email')->ignore(session()->get('id'), 'id_user'),
             ],
             'no-hp' => 'nullable|string',
             'city' => 'nullable|string',
@@ -52,21 +52,21 @@ class AccountController extends Controller
         $nama = trim($first_name . " " . $last_name);
 
         $update_user = [
-            'username' => $request->input('username'),
+            'nama' => $request->input('username'),
             'email' => $request->input('email'),
         ];
-        DB::table('users')
-            ->where('id', $user_id)
+        DB::table('user')
+            ->where('id_user', $user_id)
             ->update($update_user);
 
         $update_data_perbankan = [
-            'nama' => $nama,
-            'no_hp' => $request->input('no-hp'),
-            'kota' => $request->input('city'),
-            'alamat' => $request->input('address'),
+            'fullname' => $nama,
+            'phone_number' => $request->input('no-hp'),
+            'city' => $request->input('city'),
+            'address' => $request->input('address'),
         ];
-        DB::table('data_transaksi_bank')
-            ->where('user_id', $user_id)
+        DB::table('account')
+            ->where('id_user', $user_id)
             ->update($update_data_perbankan);
 
         return redirect()->back()->with("success", "Profil berhasil diganti!");
@@ -98,16 +98,16 @@ class AccountController extends Controller
         $user_id = session()->get('id');
 
         // Retrieve the current hash_password from the database
-        $user = DB::table('users')
-            ->select('hash_password')
-            ->where('id', $user_id)
+        $user = DB::table('user')
+            ->select('password')
+            ->where('id_user', $user_id)
             ->first();
 
         if (!$user) {
             return redirect()->back()->with("error", "User not found");
         }
 
-        $hash_password = $user->hash_password;
+        $hash_password = $user->password;
 
         // Verify the current password
         if (!Hash::check($current_password, $hash_password)) {
@@ -118,9 +118,9 @@ class AccountController extends Controller
         $new_hash_password = Hash::make($new_password);
 
         // Update the password in the database
-        DB::table('users')
-            ->where('id', $user_id)
-            ->update(['hash_password' => $new_hash_password]);
+        DB::table('user')
+            ->where('id_user', $user_id)
+            ->update(['password' => $new_hash_password]);
 
         return redirect()->back()->with("success", 'Password berhasil diubah!');
     }

@@ -36,7 +36,7 @@ class LoginController extends Controller
 
         // Find the user by email
         $user = DB::table('user')
-            ->select('id_user', 'username', 'email', 'password')
+            ->select('id_user', 'nama', 'email', 'password')
             ->where('email', $email)
             ->first();
 
@@ -50,19 +50,9 @@ class LoginController extends Controller
         }
 
         session()->put('id', $user->id_user);
-        session()->put('username', $user->username);
+        session()->put('username', $user->nama);
         session()->put('email', $user->email);
-
-        
-        $res = DB::table('balance')->select(['saldo'])->where(['id_user' => $user->id_user, 'id_currency' => 1])->first();
-
-        if(empty($res)){
-            DB::table('balance')->insert([
-                'id_user' => $user->id_user,
-                'id_currency' => 1,
-                'saldo' => 0,
-            ]);
-        }
+        session()->put('currency_mode', 2); // RM      
 
         return redirect()->route('dashboard');
     }
@@ -81,7 +71,7 @@ class LoginController extends Controller
             'email' => [
                 'required',
                 'email',
-                Rule::unique('users', 'email'),
+                Rule::unique('user', 'email'),
             ],
             'password' => 'required|string',
         ], [
@@ -95,7 +85,7 @@ class LoginController extends Controller
         $password = $request->input('password');
 
         // Check if the username or email is already registered
-        $userExists = DB::table('users')
+        $userExists = DB::table('user')
             ->where('email', $email)
             ->exists();
 
@@ -107,22 +97,26 @@ class LoginController extends Controller
         $hash_password = Hash::make($password);
 
         // Create a new user
-        $userId = DB::table('users')->insertGetId([
-            'username' => $username,
+        $userId = DB::table('user')->insertGetId([
+            'nama' => $username,
             'email' => $email,
             'password' => $hash_password,
         ]);
-
+        
         if (!$userId) {
             return redirect()->back()->with('error', "Ada masalah pada server");
         }
 
-        // Create a bank account for the user
-        DB::table('data_transaksi_bank')->insert([
-            'user_id' => $userId,
-            'nama' => $nama,
-            'nilai_saldo' => 0,
-        ]);
+        $res_currencies = DB::table('currency')->select('id')->get();
+        foreach($res_currencies as $currency){
+            DB::table('balance')->insert([
+                'id_user' => $userId,
+                'id_currency' => $currency->id,
+                'saldo' => 0,
+            ]);
+        }
+
+        DB::table('account')->insert(['id_user' => $userId, 'fullname' => $nama]);        
 
         return redirect()->route('login')->with("success", "Akun berhasil dibuat!");
     }

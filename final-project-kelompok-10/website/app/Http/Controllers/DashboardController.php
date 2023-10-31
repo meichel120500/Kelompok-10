@@ -15,7 +15,7 @@ class DashboardController extends Controller
 
         $saldo_rupiah = DB::table('balance')
             ->select('saldo')
-            ->where(['id_user' => $user_id, 'id_currency' => $id_rupiah])
+            ->where(['id_user' => $user_id, 'id_currency' => 1])
             ->first();
 
         $saldo_exchange = DB::table('balance')
@@ -23,7 +23,13 @@ class DashboardController extends Controller
             ->where(['id_user' => $user_id, 'id_currency' => $currency_mode])
             ->first();
 
-        return view('dashboard', compact('saldo_rupiah', 'saldo_exchange'));
+        $res = DB::table('currency')->select('nama_mata_uang')->where(['id' => $currency_mode])->first();
+        $nama_mata_uang_convert = "Rp.";
+
+        if($res){
+            $nama_mata_uang_convert = $res->nama_mata_uang;
+        }
+        return view('dashboard', compact('saldo_rupiah', 'saldo_exchange', 'nama_mata_uang_convert'));
     }
 }
 

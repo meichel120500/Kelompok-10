@@ -517,6 +517,17 @@ li:nth-child(6) {
     justify-content: center;
     align-items: center;
 }
+.dashboard-items-topup .btn-topup .btn {
+    font-size: 32px;
+    color: var(--warna1);
+    background-color: var(--warna13);
+    width: 287px;
+    height: 68px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* topup sukses */
 .dashboard-items.topupsukses {
     display: flex;
@@ -599,6 +610,19 @@ li:nth-child(6) {
     justify-content: center;
     align-items: center;
 }
+
+.dashboard-items-currency .btn-currency .btn {
+    font-size: 32px;
+    color: var(--warna1);
+    background-color: var(--warna13);
+    width: 287px;
+    height: 68px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cnvrt-currency {
     display: flex;
     gap: 150px;

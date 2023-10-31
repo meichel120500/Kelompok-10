@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\TopUpController;
+use App\Http\Controllers\ConvertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +37,11 @@ Route::get('profil', [AccountController::class, 'index'])->name('profil');
 Route::post('simpan-profil', [AccountController::class, 'save_profile'])->name('simpan_profil');
 Route::get('security-account', [AccountController::class, 'security_account'])->name('security_account');
 Route::post('ganti-password', [AccountController::class, 'ganti_password'])->name('ganti_password');
+
+Route::get('top-up', [TopUpController::class, 'index'])->name('top_up');
+Route::post('top-up/submit', [TopUpController::class, 'submit_top_up'])->name('top_up.submit');
+
+Route::get('convert', [ConvertController::class, 'index'])->name('convert');
+Route::post('convert/submit', [ConvertController::class, 'submit_convert'])->name('convert.submit');
 
 
