@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2023 at 08:33 PM
+-- Generation Time: Oct 31, 2023 at 01:48 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -29,10 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `id_user` int(20) NOT NULL,
-  `phone_number` int(20) NOT NULL,
-  `city` text NOT NULL,
-  `address` text NOT NULL
+  `fullname` varchar(255) NOT NULL,
+  `phone_number` int(20) DEFAULT NULL,
+  `city` text DEFAULT NULL,
+  `address` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id_user`, `fullname`, `phone_number`, `city`, `address`) VALUES
+(7, 'Admin Academy', 22222, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -46,6 +54,15 @@ CREATE TABLE `balance` (
   `saldo` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `balance`
+--
+
+INSERT INTO `balance` (`id_user`, `id_currency`, `saldo`) VALUES
+(7, 1, '424586.57'),
+(7, 2, '10.00'),
+(7, 3, '5.00');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +74,15 @@ CREATE TABLE `currency` (
   `nama_mata_uang` varchar(10) NOT NULL,
   `kode_mata_uang` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `currency`
+--
+
+INSERT INTO `currency` (`id`, `nama_mata_uang`, `kode_mata_uang`) VALUES
+(1, 'Rp', 'IDR'),
+(2, 'RM', 'MYR'),
+(3, 'S$', 'SGD');
 
 -- --------------------------------------------------------
 
@@ -86,6 +112,18 @@ CREATE TABLE `transaction` (
   `status_transaksi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id_transaction`, `id_user`, `tanggal`, `jml_mata_uang_digital`, `metode_pembayaran`, `nama_mata_uang`, `status_transaksi`) VALUES
+(1, 7, '2023-10-31', '55555.00', 'top up', NULL, 'success'),
+(2, 7, '2023-10-31', '30000.00', 'top up', NULL, 'success'),
+(3, 7, '2023-10-31', '2.00', 'convert', 'S$', 'success'),
+(4, 7, '2023-10-31', '500000.00', 'top up', NULL, 'success'),
+(5, 7, '2023-10-31', '5.00', 'convert', 'S$', 'success'),
+(6, 7, '2023-10-31', '10.00', 'convert', 'RM', 'success');
+
 -- --------------------------------------------------------
 
 --
@@ -104,7 +142,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `password`) VALUES
-(4, 'admin', 'admin@gmail.com', '$2y$10$TUf3Myl4mVfDnpfXYagZieW.mSQpYkA9MsgzRd4eSVhWhhyAuWX7y');
+(7, 'admin', 'admin@gmail.com', '$2y$10$bZTDZcZeFoDQHHbxEKd71.jEAsG.6MR5t8EDuXn35gKoakz9tgkqS');
 
 --
 -- Indexes for dumped tables
@@ -157,7 +195,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `currency`
 --
 ALTER TABLE `currency`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `metode_pembayaran`
@@ -169,13 +207,13 @@ ALTER TABLE `metode_pembayaran`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_transaction` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_user` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
