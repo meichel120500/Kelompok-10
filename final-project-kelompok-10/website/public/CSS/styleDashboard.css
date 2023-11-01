@@ -525,6 +525,7 @@ li:nth-child(6) {
     background-color: var(--warna13);
     width: 287px;
     height: 68px;
+    margin-top: 20px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -572,7 +573,8 @@ li:nth-child(6) {
 .dashboard-items-currency .txt-currency h2 {
     color: var(--warna10);
     font-weight: 500;
-    margin-top: -40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 .dashboard-items-currency .insert-currency {
     width: 490px;
@@ -582,7 +584,7 @@ li:nth-child(6) {
     font-size: 36px;
     display: flex;
     align-items: center;
-    margin-top: -50px;
+    margin-top: -30px;
 }
 .dashboard-items-currency .insert-currency span {
     padding: 10px;
@@ -619,6 +621,7 @@ li:nth-child(6) {
     background-color: var(--warna13);
     width: 287px;
     height: 68px;
+    margin-top: 25px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
