@@ -40,7 +40,7 @@
                     >
                 </li>
                 <li id="item-dropdown-payment">
-                    <a href="#payment">Payment</a>
+                    <a href="{{route('payment')}}">Payment</a>
                 </li>
                 <li id="item-dropdown-historitrans">
                     <a href="#TransactionHistory"
@@ -75,7 +75,7 @@
             </ul>
         </div>
         <div class="guide">
-            <a href="#guide"
+            <a href="{{route('guide')}}"
                 ><img src="{{ asset('assets/guide.png') }}" alt="" />
                 <span class="sidebar-text"><h2>Guide</h2></span>
             </a>

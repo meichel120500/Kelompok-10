@@ -9,6 +9,8 @@ use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\ConvertController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\GuideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +46,7 @@ Route::post('top-up/submit', [TopUpController::class, 'submit_top_up'])->name('t
 Route::get('convert', [ConvertController::class, 'index'])->name('convert');
 Route::post('convert/submit', [ConvertController::class, 'submit_convert'])->name('convert.submit');
 
+Route::get('payment', [PaymentController::class, 'index'])->name('payment');
+Route::post('payment/submit', [PaymentController::class, 'submit_payment'])->name('payment.submit');
 
+Route::get('guide', [GuideController::class, 'index'])->name('guide');
