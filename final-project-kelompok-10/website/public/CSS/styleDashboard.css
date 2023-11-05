@@ -498,7 +498,7 @@ li:nth-child(6) {
 }
 .dashboard-items-topup .insert-balance input[type="number"] {
     font-size: 36px;
-    height: 126px;
+    height: 110px;
     outline: none;
     border: none;
     width: 1050px;
@@ -578,7 +578,7 @@ li:nth-child(6) {
 }
 .dashboard-items-currency .insert-currency {
     width: 490px;
-    height: 126px;
+    height: 130px;
     border: var(--warna11) 1px solid;
     border-radius: 20px;
     font-size: 36px;
@@ -592,7 +592,7 @@ li:nth-child(6) {
 }
 .dashboard-items-currency .insert-currency input[type="number"] {
     font-size: 36px;
-    height: 16px;
+    height: 30px;
     outline: none;
     border: none;
     width: 280px;
