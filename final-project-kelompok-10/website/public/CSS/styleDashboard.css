@@ -164,7 +164,7 @@ body {
     padding: 10px;
     border-radius: 12px;
     text-align: center;
-    color: var(--warna2);
+    color: var(--warna1);
     background-color: var(--warna13);
 }
 
@@ -178,7 +178,7 @@ body {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
-    color: var(--warna2);
+    color: var(--warna1);
     background-color: var(--warna13);
 }
 
@@ -801,3 +801,26 @@ line {
     color: rgba(0, 0, 0, 0.767);
     display: none;
 }
+
+table, th, td {
+    border: 1px solid #3a86ff;
+    text-align: center;
+    padding: 10px;
+    width: 900px;
+  }
+  table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+   td.success {
+    text-align: center;
+    text-color:var(--warna4);
+  }
+  td.Progress {
+    text-align: center;
+    text-color:var(--warna7);
+  }
+  td.in-progress {
+    text-align: center;
+    text-color:var(--warna8);
+  }
