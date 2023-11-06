@@ -29,6 +29,7 @@ class DashboardController extends Controller
         if($res){
             $nama_mata_uang_convert = $res->nama_mata_uang;
         }
+
         return view('dashboard', compact('saldo_rupiah', 'saldo_exchange', 'nama_mata_uang_convert'));
     }
 }

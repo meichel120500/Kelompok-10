@@ -824,3 +824,15 @@ table, th, td {
     text-align: center;
     text-color:var(--warna8);
   }
+
+  .text-success {
+    color: green;
+  }
+
+  .text-in-progress {
+    color: yellow;
+  }
+
+  .text-failed {
+    color: red;
+  }

@@ -11,6 +11,7 @@ use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\ConvertController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +51,5 @@ Route::get('payment', [PaymentController::class, 'index'])->name('payment');
 Route::post('payment/submit', [PaymentController::class, 'submit_payment'])->name('payment.submit');
 
 Route::get('guide', [GuideController::class, 'index'])->name('guide');
+
+Route::get('history', [HistoryController::class, 'index'])->name('history');

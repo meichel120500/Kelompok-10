@@ -8,7 +8,7 @@ class APIExchange
 {
     
     public static string $base_api = "http://api.exchangeratesapi.io/v1/";
-    public static string $api_key = "01378ead89af57180e9fd2a2c8d092ca";
+    public static string $api_key = "81708fdea4edc84b5df8247f9936b8d9";
 
     public static function get($endpoint, $query_param)
     {

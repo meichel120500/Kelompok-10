@@ -28,4 +28,41 @@
 <section id="svg-path">
   <section id="card"></section>
 </section>
+
+<div class="chart" style="margin-top:200px;">
+  <div id="chartAmount"></div>
+</div>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+  var data = @json($exchange_rates_in_1_month);
+  var dates = @json($dates); // Convert the PHP $dates array to a JavaScript array
+  var count_days = dates.length;
+  Highcharts.chart('chartAmount', {
+      chart: {
+          type: 'area'
+      },
+      title: {
+          text: 'Exchange Rates for the Past '+count_days+' Days'
+      },
+      xAxis: {
+          categories: dates, // Use the $dates array as X-axis categories
+          title: {
+              text: 'Date'
+          }
+      },
+      yAxis: {
+          title: {
+              text: 'Exchange Rate'
+          }
+      },
+      tooltip: {
+          pointFormat: 'Exchange Rate: <b>{point.y:.2f}</b>'
+      },
+      series: [{
+          name: 'IDR in {{$convert_code}}',
+          data: data // Use your exchange rate data here
+      }]
+  });
+
+</script>
 @endsection

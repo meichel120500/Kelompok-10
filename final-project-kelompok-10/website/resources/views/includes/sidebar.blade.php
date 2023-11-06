@@ -43,7 +43,7 @@
                     <a href="{{route('payment')}}">Payment</a>
                 </li>
                 <li id="item-dropdown-historitrans">
-                    <a href="#TransactionHistory"
+                    <a href="{{route('history')}}"
                         >Transaction history</a
                     >
                 </li>
