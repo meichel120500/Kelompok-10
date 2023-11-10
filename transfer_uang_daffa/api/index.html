@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Uang</title>
+</head>
+<body>
+    <h1>Transfer Uang</h1>
+    <form action="transfer.php" method="POST">
+        <label for="from">Dari Nama Akun:</label>
+        <input type="text" name="from" required><br><br>
+        
+        <label for="to">Ke Nama Akun:</label>
+        <input type="text" name="to" required><br><br>
+        
+        <label for="amount">Jumlah Transfer Uang:</label>
+        <input type="number" name="amount" required><br><br>
+        
+        <input type="submit" value="Transfer">
+    </form>
+</body>
+</html>

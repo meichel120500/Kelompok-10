@@ -1,0 +1,397 @@
+:root {
+  --warna1: #ffffff;
+  --warna2: #000000;
+  --warna3: #d9d9d9;
+  --warna4: #29bf12;
+  --warna5: #abff4f;
+  --warna6: #08bdbd;
+  --warna7: #f21b3f;
+  --warna8: #ff9914;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--warna1);
+  color: var(--warna2);
+  font-family: "MuseoModerno", cursive;
+}
+
+/* main */
+.main {
+  display: flex;
+}
+/* topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.topbar i {
+  font-size: 25px;
+  cursor: pointer;
+  color: var(--warna8);
+}
+
+/* menu */
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* menu dashboard */
+.menu-dashboard {
+  padding: 30px;
+}
+.menu-dashboard h2 {
+  font-weight: 500;
+  margin-bottom: 41px;
+  font-size: 32px;
+}
+.menu-dashboard h2:nth-child(2) {
+  color: var(--warna7);
+}
+.dashboard-items {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* menu profile */
+.user-img {
+}
+#photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--warna8);
+}
+#file {
+  display: none;
+}
+#uploadbtn {
+  position: absolute;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 6px;
+  margin-left: 20px;
+  margin-top: 18px;
+  background-color: var(--warna5);
+  cursor: pointer;
+}
+/* input profile */
+.profile.item2 {
+  display: flex;
+  justify-content: space-between;
+}
+.profile.item2 h2 {
+  font-size: 22px;
+}
+.profile.item2 input[type="text"] {
+  border: 2px solid var(--warna8);
+  font-size: 24px;
+  border-radius: 15px;
+  width: 510px;
+  height: 10.398px;
+  padding: 20px;
+  margin-top: -30px;
+}
+.profile.item2 input[type="email"] {
+  border: 2px solid var(--warna8);
+  font-size: 24px;
+  border-radius: 15px;
+  width: 510px;
+  height: 10.398px;
+  padding: 20px;
+  margin-top: -30px;
+}
+.profile.item2 input[type="number"] {
+  border: 2px solid var(--warna8);
+  font-size: 24px;
+  border-radius: 15px;
+  width: 510px;
+  height: 10.398px;
+  padding: 20px;
+  margin-top: -30px;
+}
+.profile.item2 input[type="password"] {
+  border: 2px solid var(--warna8);
+  font-size: 24px;
+  border-radius: 15px;
+  width: 510px;
+  height: 10.398px;
+  padding: 20px;
+  margin-top: -30px;
+}
+.profile.item3 input[type="text"] {
+  border: 2px solid var(--warna8);
+  font-size: 24px;
+  border-radius: 15px;
+  width: 1120px;
+  height: 10.398px;
+  padding: 20px;
+  margin-top: -30px;
+}
+.profile.item3 .save-changes a {
+  position: absolute;
+  margin-top: 30px;
+  width: 130px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--warna2);
+  background-color: var(--warna5);
+}
+.item4 {
+  position: absolute;
+  margin-top: 120px;
+}
+.item4 h2 {
+  color: var(--warna7);
+  margin-bottom: -3px;
+}
+.item4 h3 {
+  font-weight: 500;
+  margin-bottom: -15px;
+}
+.item4 .delete-akun a {
+  position: absolute;
+  margin-top: 30px;
+  width: 130px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  color: var(--warna2);
+  background-color: var(--warna5);
+}
+/* welcome */
+.welcome {
+  background-color: var(--warna6);
+  width: 455px;
+  height: 126px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.welcome h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.welcome h2 span {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* saldo user */
+.saldo-user {
+  background-color: var(--warna5);
+  width: 385px;
+  height: 126px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+.saldo-user h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.saldo-user h2 span {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* transfe uang */
+.transfer-uang {
+  background-color: var(--warna7);
+  width: 385px;
+  height: 126px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.transfer-uang h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.transfer-uang h2 span {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* total pendapatan */
+.total-pendapatan {
+  background-color: var(--warna6);
+  width: 455px;
+  height: 126px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+.total-pendapatan h2 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.total-pendapatan h2 span {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* sidebar */
+.sidebar {
+  background-color: var(--warna4);
+  height: 820px;
+  width: 341px;
+  box-sizing: border-box;
+}
+
+.sidebar h1 {
+  color: var(--warna1);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+.sidebar h1 span {
+  color: var(--warna2);
+}
+
+.items {
+  padding: 8px;
+}
+/* dashboard */
+.items .dashboard a {
+  padding: 10px;
+  display: flex;
+  color: var(--warna1);
+}
+.items .dashboard a img {
+  margin-left: 5px;
+}
+.items .dashboard a span {
+  margin-left: 26px;
+}
+.items .dashboard a span h2 {
+  font-weight: 500;
+}
+.items .dashboard:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* saldo */
+.items .saldo a {
+  padding: 10px;
+  display: flex;
+  color: var(--warna1);
+}
+.items .saldo a img {
+  width: 52px;
+  height: 32px;
+  margin-top: 3px;
+}
+.items .saldo a span {
+  margin-left: 20px;
+}
+.items .saldo a span h2 {
+  font-weight: 500;
+}
+.items .saldo:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* akun */
+.items .akun ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-decoration: none;
+  margin-bottom: 360px;
+  height: 100px;
+  color: var(--warna1);
+}
+.items .akun ul li a {
+  display: flex;
+  color: var(--warna1);
+  padding: 10px;
+}
+.items .akun ul li a i {
+  color: var(--warna1);
+  padding: 10px;
+  margin-left: 60px;
+}
+
+.items .akun ul li:nth-child(2),
+li:nth-child(3) {
+  display: none;
+}
+
+.items .akun ul img {
+  margin-left: 5px;
+}
+.items .akun ul span {
+  margin-left: 26px;
+}
+.items .akun ul span h2 {
+  font-weight: 500;
+  color: var(--warna1);
+}
+.items .akun ul li:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* logout */
+
+.items .logout a {
+  padding: 10px;
+  display: flex;
+
+  color: var(--warna1);
+}
+.items .logout a img {
+  margin-left: 5px;
+}
+.items .logout a span {
+  margin-left: 26px;
+}
+.items .logout a span h2 {
+  font-weight: 500;
+}
+.items .logout:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* sidebar hide */
+.sidebar.hide {
+  width: 80px;
+}
+.sidebar.hide h1 {
+  font-size: 13px;
+  margin-left: -30px;
+}
+.sidebar.hide .items {
+  margin-left: -10px;
+}
+.sidebar.hide .items .logout span {
+  display: none;
+}
